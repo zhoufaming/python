@@ -18,6 +18,7 @@ cd Python-3.6.2
 make && make install
 
 第三步:建立软连接
+
 ln -s /usr/local/python3/bin/python3.6 /usr/bin/python3
 
 ln -s /usr/local/bin/python3/bin/pip3 /usr/bin/pip3
