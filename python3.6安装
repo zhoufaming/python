@@ -25,3 +25,25 @@ ln -s /usr/local/python3/bin/python3.6 /usr/bin/python3
 ln -s /usr/local/bin/python3/bin/pip3 /usr/bin/pip3
 
 #ln -s /usr/local/python3/bin/python3 /usr/bin/python
+
+第四步：防止yum报错
+
+vim /usr/bin/yum
+
+#!/usr/bin/python
+
+import sys
+
+try:
+
+    import yum
+
+将上面的语句改为：
+
+#!/usr/bin/python2
+
+import sys
+
+try:
+
+    import yum
