@@ -1,0 +1,20 @@
+这个高阶函数用于部分应用一个函数。部分应用是指，基于一个函数创建一个新的可调用对象，把原函数的某些参数固
+
+定。使用这个函数可以把接受一个或多个参数的函数改编成需要回调的API，这样参数更少
+
+>>> from operator import mul
+
+>>> from functools import partial
+
+>>> triple = partial(mul, 3) 
+
+>>> triple(7) 
+
+21
+
+>>> list(map(triple, range(1, 10))) 
+[3, 6, 9, 12, 15, 18, 21, 24, 27]
+
+等价于
+>>> map(lambda y:3*y, range(1,10))
+[3, 6, 9, 12, 15, 18, 21, 24, 27]
