@@ -1,0 +1,9 @@
+__str__是在 str() 函数被使用，或是在用 print 函数打印一个对象的时候才被调用的，并且它返回的字符串对终端用户更友好
+
+class a():
+    def __repr__(self):
+        return "ok"
+        
+abc = a()
+print abc
+"ok"
