@@ -1,8 +1,10 @@
 Python本身不提供抽象类，要想实现抽象类，可以借助abc模块。ABC是Abstract Base Class的缩写
 
 
-from abc import abstractmethod
+from abc import abstractmethod,ABCMeta
 class Test(object):
+    __metaclass__ = abc.ABCMeta
+    
     @abstractmethod
     def funcname(self,name):
         pass
@@ -14,3 +16,72 @@ class jake(Test):
         
 aname = jake()
 aname.funcname("Tom")
+
+上面代码等价于：
+
+from abc import abstractmethod,ABCMeta
+class Test(object):
+    __metaclass__ = abc.ABCMeta
+    
+    @abstractmethod
+    def funcname(self,name):
+        pass
+        
+class jake(object):
+    def funcname(self,name):
+        print name
+
+Test.register(jake)
+        
+aname = jake()
+aname.funcname("Tom")
+ 
+ 两者唯一区别：
+ 前者查询该基类的子类时，会输出所有继承自该基类的子类，但前者好处是，除非该子类实现了所有的抽象方法，否者无法创建该子类。
+ 
+ 抽象类中的抽象方法也可以完整实现：
+from abc import abstractmethod,ABCMeta
+class Test(object):
+    __metaclass__ = abc.ABCMeta
+    
+    @abstractmethod
+    def funcname(self,name):
+        print(name)
+        
+class jake(Test):
+    def funcname(self,name):
+        super(jake, self).funcname(name)#此处可调用抽象基类的已完整实现的抽象方法
+        print name
+        
+        
+aname = jake()
+aname.funcname("Tom")
+
+抽象属性：通过@abstractproperty定义抽象属性
+
+
+from abc import abstractmethod,ABCMeta
+class Test(object):
+    __metaclass__ = abc.ABCMeta
+    
+    @abstractmethod
+    def funcname(self,name):
+        pass
+     
+    @abstractproperty
+    def index(self):
+        return "are you ok"
+        
+class jake(Test):
+    def funcname(self,name):
+        print name
+    
+    @property
+    def index(self):
+        return "are you ok2"
+    
+        
+        
+aname = jake()
+aname.funcname("Tom")
+aname.index
