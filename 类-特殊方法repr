@@ -1,0 +1,9 @@
+ 把一个实例用字符串的形式表达出来以便辨认
+ 如果没有实现__repr__，当我们在控制台里打印一个实例时，得到的字符串可能会是 <Vector object at 0x10e100070>
+ 
+ class a():
+     def __repr__(self):
+         return "ok"
+ abc = a()
+ print abc
+ "ok"
