@@ -1,5 +1,5 @@
 Python本身不提供抽象类，要想实现抽象类，可以借助abc模块。ABC是Abstract Base Class的缩写
-
+在 Python 3.4 中，声明抽象基类最简单的方式是子类化abc.ABC。从 Python 3.0 到 Python3.3，必须在 class 语句中使用 metaclass= 关键字
 
 from abc import abstractmethod,ABCMeta
 class Test(object):
