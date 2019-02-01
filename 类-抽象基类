@@ -1,0 +1,16 @@
+Python本身不提供抽象类，要想实现抽象类，可以借助abc模块。ABC是Abstract Base Class的缩写
+
+
+from abc import abstractmethod
+class Test(object):
+    @abstractmethod
+    def funcname(self,name):
+        pass
+        
+class jake(Test):
+    def funcname(self,name):
+        print name
+        
+        
+aname = jake()
+aname.funcname("Tom")
