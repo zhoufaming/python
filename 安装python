@@ -4,6 +4,7 @@ yum install libffi-devel -y
 yum -y groupinstall "Development tools"
 
 yum -y install  bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel zlib*
+wget http://python.org/ftp/python/2.7.15/Python-2.7.15.tgz
 mkdir python27
 cd Python-2.7.15
 ./configure --prefix=/usr/local/python27
