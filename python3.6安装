@@ -1,6 +1,6 @@
 
 第一步：安装依赖
-
+#安装3.7需 yum install libffi-devel -y
 yum -y groupinstall "Development tools"
 yum -y install  bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel zlib*
 
